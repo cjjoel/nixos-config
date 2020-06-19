@@ -1,8 +1,6 @@
 {
-	termite = {
-    enable = true;
-    clickableUrl = true;
-    font = "Ubuntu Mono 18";
-    scrollbackLines = 10000;
-  };
+  enable = true;
+  clickableUrl = true;
+  font = "Ubuntu Mono 14";
+  scrollbackLines = 10000;
 }

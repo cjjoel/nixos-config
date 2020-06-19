@@ -1,3 +1,3 @@
 {
-  bash.enable = true;
+  enable = true;
 }

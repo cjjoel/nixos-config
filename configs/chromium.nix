@@ -1,10 +1,8 @@
 {
-  chromium = {
-    enable = true;
-	  extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" #ublock
-      "bpconcjcammlapcogcnnelfmaeghhagj" #nimbus
-      "eclbecdgdoahkliaijlpkigldlkojjdn" #screen recorder 
-      ];
-  };
+  enable = true;
+	extensions = [
+    "cjpalhdlnbpafiamejdnhcphjbkeiagm" #ublock
+    "bpconcjcammlapcogcnnelfmaeghhagj" #nimbus
+    "eclbecdgdoahkliaijlpkigldlkojjdn" #screen recorder 
+  ];
 }
