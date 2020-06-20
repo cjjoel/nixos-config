@@ -8,4 +8,7 @@
     c = "commit -m";
     p = "push origin master";
   };
+  extraConfig = {
+    github = { user = "joel"; };
+  };
 }
