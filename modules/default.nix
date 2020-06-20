@@ -30,7 +30,7 @@ let
 in {
   imports = [ <home-manager/nixos> ] ++ validFiles ./.;
 
-	options = {
+  options = {
 		my = {
       username = mkOptionStr "joel";
      	home = mkOption { type = options.home-manager.users.type.functor.wrapped; };
@@ -46,7 +46,8 @@ in {
     users.users.${config.my.username} = mkAliasDefinitions options.my.user;
     my.user.packages = config.my.packages;
 
-    my.home.programs =  (attrsets.genAttrs config.modules.enableList (name: attrsets.setAttrByPath ["enable" ] true));
+    # genAttrs generate attributes with the names given from enableList and set their value to { enable = true; }
+    my.home.programs =  (attrsets.genAttrs config.modules.enableList (name: { enable = true; }));
     my.packages =  config.modules.pkgList;
 	};
 }
