@@ -1,8 +1,8 @@
 { config, options, lib, ... }:
 
-with lib; {
+with lib; with types; {
   options.modules.display-manager = {
-      startx.enable = mkOption { type = types.bool; default = false; };
+      startx.enable = mkOption { type = bool; default = false; };
     };
 
   config.services.xserver.displayManager = {

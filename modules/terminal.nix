@@ -2,7 +2,7 @@
 
 with lib; with types; {
   options.modules.terminal = {
-      termite.enable = mkOption { type = types.bool; default = false; };
+      termite.enable = mkOption { type = bool; default = false; };
     };
 
   config.my.home.programs = {

@@ -1,10 +1,10 @@
 { config, options, lib, ... }:
 
-with lib;
+with lib; with types;
 let
   mkOptionStr = value:
     mkOption {
-      type = types.str;
+      type = str;
       default = value;
     };
 
@@ -30,11 +30,11 @@ in {
 		my = {
       username = mkOptionStr "joel";
      	home = mkOption { type = options.home-manager.users.type.functor.wrapped; };
-     	user = mkOption { type = types.submodule; };
-     	packages = mkOption { type = with types; listOf package; };
+     	user = mkOption { type = submodule; };
+     	packages = mkOption { type = listOf package; };
 		};
-    modules.enableList = mkOption { type = with types; listOf str; default = []; };
-    modules.pkgList = mkOption { type = with types; listOf package; default = []; };
+    modules.enableList = mkOption { type = listOf str; default = []; };
+    modules.pkgList = mkOption { type = listOf package; default = []; };
 	};
 
 	config = {
