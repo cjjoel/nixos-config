@@ -8,6 +8,7 @@ with lib; with types; {
       zathura.enable = mkOption { type = bool; default = false; };
       mpv.enable = mkOption { type = bool; default = false; };
       youtube-dl.enable = mkOption { type = bool; default = false; };
+      fd.enable = mkOption { type = bool; default = false; };
     };
 
   config = {
@@ -17,6 +18,7 @@ with lib; with types; {
       (mkIf config.modules.utils.zathura.enable zathura) 
       (mkIf config.modules.utils.mpv.enable mpv) 
       (mkIf config.modules.utils.mpv.enable youtube-dl) 
+      (mkIf config.modules.utils.mpv.enable fd) 
     ];
 
     my.home.programs = {
