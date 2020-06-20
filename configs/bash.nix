@@ -6,4 +6,5 @@
     df = "df -H";
     path = "echo -e ${PATH//:/\\n}";
     today = "date +%d-%m-%Y";
+  };
 }
