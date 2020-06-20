@@ -17,6 +17,7 @@
       mpv.enable = true;
       zathura.enable = true;
       youtube-dl.enable = true;
+      fd.enable = true;
     };
 
     editor = {
