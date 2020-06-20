@@ -16,6 +16,7 @@
       git.enable = true;
       mpv.enable = true;
       zathura.enable = true;
+      youtube-dl.enable = true;
     };
 
     editor = {
