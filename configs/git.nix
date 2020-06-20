@@ -9,6 +9,6 @@
     p = "push origin master";
   };
   extraConfig = {
-    github = { user = "joel"; };
+    github = { user = "cjjoel"; };
   };
 }
