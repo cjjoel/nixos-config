@@ -1,3 +1,7 @@
+# Credits:
+# Submodule options.my is based on https://github.com/hlissner/dotfiles/blob/master/modules/default.nix
+# Recursive import of nix files in the modules directory is based on https://github.com/Infinisil/system/blob/master/config/new-modules/default.nix
+
 { config, options, lib, ... }:
 
 with lib; with types;
