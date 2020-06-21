@@ -8,6 +8,6 @@ with lib; with types; {
 
   config.my.home.programs = {
     neovim = (mkIf config.modules.editor.neovim.enable (import ../configs/neovim.nix));
-    emacs.enable = (mkIf config.modules.editor.emacs.enable true);
+    emacs = (mkIf config.modules.editor.emacs.enable (import ../configs/emacs.nix));
   };
 }
