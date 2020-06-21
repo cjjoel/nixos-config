@@ -4,6 +4,8 @@
   imports = [ ./common.nix ../modules ];
 
   modules = {
+    pkgList = with pkgs; [ sqlite ]; # for org-roam in doom-emacs
+
     shell.bash.enable = true;
     terminal.termite.enable = true;
     
