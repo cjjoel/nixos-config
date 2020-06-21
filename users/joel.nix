@@ -18,6 +18,11 @@
       zathura.enable = true;
       youtube-dl.enable = true;
       fd.enable = true;
+      thefuck.enable = true;
+    };
+
+    dev = {
+      racket.enable =true;
     };
 
     editor = {
