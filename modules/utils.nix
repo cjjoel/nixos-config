@@ -27,5 +27,4 @@ with lib; with types; {
       zathura = (mkIf config.modules.utils.zathura.enable (import ../configs/zathura.nix));
     };
   };
-
 }
