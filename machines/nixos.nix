@@ -19,8 +19,13 @@
   networking.hostName = "nixos";
   environment.systemPackages = with pkgs; [ exfat ntfs3g ];
   programs.light.enable = true;
+  
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
+
+  networking.networkmanager.enable = true; 
+  my.home.services.network-manager-applet.enable = true;
+
   hardware.opengl.driSupport32Bit = true;
   nixpkgs.config.allowUnfree = true;
 }

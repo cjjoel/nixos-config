@@ -13,7 +13,5 @@
 	};
 
   security.sudo.wheelNeedsPassword = false;
-  networking.networkmanager.enable = true; 
   my.home.programs.home-manager.enable = true;
-  my.home.services.network-manager-applet.enable = true;
 }
