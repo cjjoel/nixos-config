@@ -13,7 +13,8 @@
     display-manager.startx.enable = true;
     
     dev = {
-      racket.enable =true;
+      racket.enable = true;
+      heroku.enable = true;
     };
 
     editor = {
