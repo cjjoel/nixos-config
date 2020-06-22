@@ -19,7 +19,7 @@ with lib; with types; {
       (mkIf config.modules.utils.mpv.enable mpv) 
       (mkIf config.modules.utils.youtube-dl.enable youtube-dl) 
       (mkIf config.modules.utils.fd.enable fd) 
-      (mkIf config.modules.utils.thefuck.enable fd) 
+      (mkIf config.modules.utils.thefuck.enable thefuck) 
     ];
 
     my.home.programs = {
