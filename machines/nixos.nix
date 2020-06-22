@@ -22,6 +22,7 @@
   
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
+  my.packages = with pkgs; [ pavucontrol ];
 
   networking.networkmanager.enable = true; 
   my.home.services.network-manager-applet.enable = true;
