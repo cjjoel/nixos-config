@@ -15,6 +15,8 @@
     dev = {
       racket.enable = true;
       heroku.enable = true;
+      gcc.enable = true;
+      clang.enable = true;
     };
 
     editor = {
