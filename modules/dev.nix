@@ -9,9 +9,9 @@ with lib; with types; {
   };
 
   config.my.packages = with pkgs; [
-    (mkIf config.modules.dev.racket.enable racket) 
-    (mkIf config.modules.dev.heroku.enable heroku) 
-    (mkIf config.modules.dev.clang.enable clang) 
-    (mkIf config.modules.dev.gcc.enable gcc) 
+    (mkIf config.modules.dev.racket.enable racket)
+    (mkIf config.modules.dev.heroku.enable heroku)
+    (mkIf config.modules.dev.clang.enable clang)
+    (mkIf config.modules.dev.gcc.enable gcc)
   ];
 }
