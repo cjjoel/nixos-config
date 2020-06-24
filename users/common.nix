@@ -8,9 +8,9 @@
 
   fonts = {
     fontconfig.enable = true;
-	  enableFontDir = true;
-	  enableGhostscriptFonts = true;
-	};
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+  };
 
   security.sudo.wheelNeedsPassword = false;
   my.home.programs.home-manager.enable = true;
