@@ -1,8 +1,8 @@
 {
   enable = true;
-	extensions = [
+  extensions = [
     "cjpalhdlnbpafiamejdnhcphjbkeiagm" #ublock
     "bpconcjcammlapcogcnnelfmaeghhagj" #nimbus
-    "eclbecdgdoahkliaijlpkigldlkojjdn" #screen recorder 
+    "eclbecdgdoahkliaijlpkigldlkojjdn" #screen recorder
   ];
 }
