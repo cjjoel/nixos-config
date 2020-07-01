@@ -12,4 +12,7 @@ with lib; with types; {
     (mkIf config.modules.misc.fortune.enable fortune) 
     (mkIf config.modules.misc.neofetch.enable neofetch) 
   ];
+
+
+  #config = (import ./install.nix { package = "fortune"; inherit pkgs; inherit lib; }); 
 }

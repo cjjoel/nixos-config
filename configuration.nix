@@ -1,6 +1,6 @@
 {
   imports = [
-    ./machines/nixos.nix
+    ./machines/silvester.nix
     ./users/joel.nix
   ];
 }

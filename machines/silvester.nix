@@ -16,7 +16,7 @@
     '';
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "silvester";
   environment.systemPackages = with pkgs; [ exfat ntfs3g ];
   programs.light.enable = true;
   

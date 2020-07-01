@@ -8,7 +8,7 @@
 
     shell.bash.enable = true;
     terminal.termite.enable = true;
-    
+
     window-manager.i3wm.enable = true;
     display-manager.startx.enable = true;
     
@@ -16,7 +16,7 @@
       racket.enable = true;
       heroku.enable = true;
       gcc.enable = true;
-      clang.enable = true;
+      #clang.enable = true;
     };
 
     editor = {
@@ -34,18 +34,18 @@
       riot.enable = true;
     };
 
-    misc = {
-      cowsay.enable = true;
-      fortune.enable = true;
-      neofetch.enable = true;
-    };
+    #misc = {
+    #  cowsay.enable = true;
+    #  fortune.enable = true;
+    #  neofetch.enable = true;
+    #};
 
     utils = {
       tree.enable = true;
       feh.enable = true;
       git.enable = true;
       mpv.enable = true;
-      zathura.enable = true;
+      #zathura.enable = true;
       youtube-dl.enable = true;
       fd.enable = true;
       thefuck.enable = true;

@@ -25,6 +25,7 @@ let
     (filter (file: 
                 hasSuffix ".nix" file && 
                 file != "default.nix" && 
+                file != "install.nix" && 
                 file != "skeleton.nix") 
             (files dir));
 in {
