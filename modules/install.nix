@@ -1,10 +1,12 @@
-{ package, pkgs, lib}:
+{ package, pkgs, lib, config, ...}:
 
+with lib;
 {
+ my = mkMerge [
+     (mkIf (lib.attrsets.hasAttrByPath["my" "home" "programs" (strings.getName package)] config.my)
+      (attrsets.setAttrByPath ["home" "program" (strings.getName package) "enable" ] true))
 
-  my = 
-    (if lib.attrsets.hasAttrByPath[ "home" "programs" package ] then
-      (home.program.package = lib.attrsets.setAttrByPath [ "enable" ] true)
-    else
-      (packages = with pkgs; [ package ]));
+     (mkIf (!lib.attrsets.hasAttrByPath["my" "home" "programs" (strings.getName package)] config.my)
+      (attrsets.setAttrByPath ["packages" ] [ package ]))
+];
 }

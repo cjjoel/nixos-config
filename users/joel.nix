@@ -34,11 +34,11 @@
       riot.enable = true;
     };
 
-    #misc = {
+    misc = {
     #  cowsay.enable = true;
     #  fortune.enable = true;
-    #  neofetch.enable = true;
-    #};
+      neofetch.enable = true;
+    };
 
     utils = {
       tree.enable = true;
