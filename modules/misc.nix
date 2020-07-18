@@ -7,13 +7,15 @@ with lib; with types; {
     neofetch.enable = mkOption { type = bool; default = false; };
   };
 
-#  config.my.packages = with pkgs; [
-#    (mkIf config.modules.misc.cowsay.enable cowsay) 
-#    (mkIf config.modules.misc.fortune.enable fortune) 
-#    (mkIf config.modules.misc.neofetch.enable neofetch) 
-#  ];
+  config = mkMerge [
+    (mkIf config.modules.misc.cowsay.enable 
+      (import ./install.nix { package = pkgs.cowsay; enable = false; inherit lib;}))
 
+    (mkIf config.modules.misc.fortune.enable 
+      (import ./install.nix { package = pkgs.fortune; enable = false; inherit lib;}))
 
-  config = (mkIf config.modules.misc.neofetch.enable 
-    (import ./install.nix { package = pkgs.neofetch; inherit pkgs; inherit lib; inherit config;}));
+    (mkIf config.modules.misc.neofetch.enable 
+      (import ./install.nix { package = pkgs.neofetch; enable = false; inherit lib;}))
+  ];
+
 }

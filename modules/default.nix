@@ -40,7 +40,7 @@ in {
 		};
     modules.enableList = mkOption { type = listOf str; default = []; };
     modules.pkgList = mkOption { type = listOf package; default = []; };
-	};
+	if};
 
 	config = {
     home-manager.users.${config.my.username} = mkAliasDefinitions options.my.home;
