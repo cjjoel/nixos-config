@@ -1,6 +1,10 @@
 { pkgs, config, options, lib, ... }:
 
-with lib; with types; {
+with lib; with types;
+let 
+  pkg-dev-install = (import ./pkg.nix { inherit lib config; } "dev" (import ./install.nix));
+in {
+
   options.modules.dev = {
     racket.enable = mkOption { type = types.bool; default = false; };
     heroku.enable = mkOption { type = types.bool; default = false; };
@@ -8,10 +12,10 @@ with lib; with types; {
     gcc.enable = mkOption { type = types.bool; default = false; };
   };
 
-  config.my.packages = with pkgs; [
-    (mkIf config.modules.dev.racket.enable racket)
-    (mkIf config.modules.dev.heroku.enable heroku)
-    (mkIf config.modules.dev.clang.enable clang)
-    (mkIf config.modules.dev.gcc.enable gcc)
-  ];
+  config = mkMerge (map pkg-dev-install [ 
+    { package = pkgs.racket; } 
+    { package = pkgs.heroku; } 
+    { package = pkgs.clang; } 
+    { package = pkgs.gcc; } 
+  ]);
 }

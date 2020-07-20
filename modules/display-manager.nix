@@ -1,6 +1,7 @@
 { config, options, lib, ... }:
 
 with lib; with types; {
+
   options.modules.display-manager = {
       startx.enable = mkOption { type = bool; default = false; };
     };

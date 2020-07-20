@@ -1,11 +1,16 @@
 { config, options, lib, ... }:
 
-with lib; with types; {
+with lib; with types;
+let 
+  pkg-shell-enable = (import ./pkg.nix { inherit lib config; } "shell" (import ./enable.nix));
+  bash-conf = import ../configs/bash.nix;
+in {
+
   options.modules.shell = {
-      bash.enable = mkOption { type = bool; default = false; };
+    bash.enable = mkOption { type = bool; default = false; };
     };
 
-  config.my.home.programs = {
-    bash = (mkIf config.modules.shell.bash.enable (import ../configs/bash.nix));
-  };
+  config = mkMerge [
+    (pkg-shell-enable { package = "bash"; conf = bash-conf; })
+  ];
 }

@@ -1,10 +1,14 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./common.nix ../modules ];
+  imports = [ 
+    ./common.nix 
+    ../modules
+    ../services/xserver.nix 
+  ];
 
   modules = {
-    pkgList = with pkgs; [ sqlite ]; # for org-roam in doom-emacs
+    #pkgList = with pkgs; [ sqlite ]; 
 
     shell.bash.enable = true;
     terminal.termite.enable = true;
@@ -21,7 +25,7 @@
 
     editor = {
       neovim.enable = true;
-      emacs.enable = true;
+      doom.enable = true;
     };
 
     browser = {
@@ -35,8 +39,8 @@
     };
 
     misc = {
-    #  cowsay.enable = true;
-    #  fortune.enable = true;
+      cowsay.enable = true;
+    # fortune.enable = true;
       neofetch.enable = true;
     };
 
@@ -48,7 +52,7 @@
       #zathura.enable = true;
       youtube-dl.enable = true;
       fd.enable = true;
-      thefuck.enable = true;
+      #thefuck.enable = true;
     };
   };
 

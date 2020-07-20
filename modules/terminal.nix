@@ -1,11 +1,16 @@
 { config, options, lib, ... }:
 
-with lib; with types; {
-  options.modules.terminal = {
-      termite.enable = mkOption { type = bool; default = false; };
-    };
+with lib; with types;
+let
+  pkg-terminal-enable = (import ./pkg.nix { inherit lib config; } "terminal" (import ./enable.nix));
+  termite-conf = import ../configs/termite.nix;
+in {
 
-  config.my.home.programs = {
-    termite = (mkIf config.modules.terminal.termite.enable (import ../configs/termite.nix));
+  options.modules.terminal = {
+    termite.enable = mkOption { type = bool; default = false; };
   };
+
+  config = mkMerge [ 
+    (pkg-terminal-enable { package = "termite"; conf = termite-conf; })
+  ];
 }

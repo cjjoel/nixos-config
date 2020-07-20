@@ -1,13 +1,18 @@
 { pkgs, config, options, lib, ... }:
 
-with lib; with types; {
+with lib; with types;
+let
+  install = import ./install.nix;
+  pkg-social-install = (import ./pkg.nix { inherit lib config; } "social" (import ./install.nix));
+in {
+
   options.modules.social = {
     discord.enable = mkOption { type = types.bool; default = false; };
     riot.enable = mkOption { type = types.bool; default = false; };
   };
 
-  config.my.packages = with pkgs; [
-    (mkIf config.modules.social.discord.enable discord) 
-    (mkIf config.modules.social.riot.enable riot-desktop) 
+  config = mkMerge [ 
+    (pkg-social-install { package = pkgs.discord; })
+    (install { package = pkgs.riot-desktop; cond = config.modules.social.riot.enable; inherit lib; })
   ];
 }

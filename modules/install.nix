@@ -1,9 +1,4 @@
-{ package, enable, lib}:
+{ package, cond, lib, ... }:
 
 with lib;
-mkMerge [
-  (mkIf enable
-    (attrsets.setAttrByPath ["my" "home" "programs" (getName package) "enable" ] true))
-  (mkIf (!enable)
-    (attrsets.setAttrByPath ["my" "packages" ] [ package ]))
-]
+mkIf cond (attrsets.setAttrByPath ["my" "packages" ] [ package ])

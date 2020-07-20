@@ -26,9 +26,12 @@ let
                 hasSuffix ".nix" file && 
                 file != "default.nix" && 
                 file != "install.nix" && 
+                file != "pkg.nix" && 
+                file != "enable.nix" && 
                 file != "skeleton.nix") 
             (files dir));
 in {
+
   imports = [ <home-manager/nixos> ] ++ validFiles ./.;
 
   options = {
@@ -40,7 +43,7 @@ in {
 		};
     modules.enableList = mkOption { type = listOf str; default = []; };
     modules.pkgList = mkOption { type = listOf package; default = []; };
-	if};
+	};
 
 	config = {
     home-manager.users.${config.my.username} = mkAliasDefinitions options.my.home;

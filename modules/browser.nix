@@ -1,13 +1,18 @@
-{ config, options, lib, ... }:
+{ pkgs, config, options, lib, ... }:
 
-with lib; with types; {
+with lib; with types; 
+let 
+  pkg-browser-enable = (import ./pkg.nix { inherit lib config; } "browser" (import ./enable.nix));
+  chromium-conf = import ../configs/chromium.nix;
+in {
+
   options.modules.browser = {
       firefox.enable = mkOption { type = bool; default = false; };
       chromium.enable = mkOption { type = bool; default = false; };
     };
 
-  config.my.home.programs = {
-    firefox.enable = (mkIf config.modules.browser.firefox.enable true);
-    chromium = (mkIf config.modules.browser.chromium.enable (import ../configs/chromium.nix));
-  };
+  config = mkMerge [ 
+    (pkg-browser-enable { package = "firefox"; })
+    (pkg-browser-enable { package = "chromium"; conf = chromium-conf; })
+  ];
 }
