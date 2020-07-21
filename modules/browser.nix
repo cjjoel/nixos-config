@@ -3,7 +3,7 @@
 with lib; with types; 
 let 
   pkg-browser-enable = (import ./pkg.nix { inherit lib config; } "browser" (import ./enable.nix));
-  chromium-conf = import ../configs/chromium.nix;
+  chromium-conf = import ../nix-home/chromium.nix;
 in {
 
   options.modules.browser = {

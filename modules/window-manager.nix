@@ -6,8 +6,14 @@ with lib; with types; {
     i3wm.enable = mkOption { type = bool; default = false; };
   };
 
-  config.my.home.xsession.windowManager = {
+  config.my.home = {
+
+    home.file = mkIf config.modules.window-manager.i3wm.enable {
+      ".xinitrc".text = "exec i3"; };
+
+    xsession.windowManager = {
     i3 = mkIf config.modules.window-manager.i3wm.enable
-      (import ../configs/i3wm.nix { inherit lib; });
+      (import ../nix-home/i3wm.nix { inherit lib; });
+    };
   };
 }

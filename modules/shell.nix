@@ -3,7 +3,7 @@
 with lib; with types;
 let 
   pkg-shell-enable = (import ./pkg.nix { inherit lib config; } "shell" (import ./enable.nix));
-  bash-conf = import ../configs/bash.nix;
+  bash-conf = import ../nix-home/bash.nix;
 in {
 
   options.modules.shell = {

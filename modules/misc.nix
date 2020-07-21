@@ -11,9 +11,9 @@ in {
     neofetch.enable = mkOption { type = bool; default = false; };
   };
 
-  config = mkMerge (map pkg-misc-install [ 
-    { package = pkgs.cowsay; } 
-    { package = pkgs.neofetch; } 
-    { package = pkgs.fortune; } 
-  ]);
+  config = mkMerge (map (x: pkg-misc-install { package = x; }) (with pkgs; [
+    cowsay
+    neofetch
+    fortune
+  ]));
 }

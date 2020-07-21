@@ -3,10 +3,8 @@
 with lib; with types; 
 let 
   pkg-editor-enable = (import ./pkg.nix { inherit lib config; } "editor" (import ./enable.nix));
-  install = import ./install.nix;
-  enable = import ./enable.nix;
-  neovim-conf = import ../configs/neovim.nix;
-  emacs-conf = import ../configs/emacs.nix;
+  pkg-editor-install = (import ./pkg.nix { inherit lib config; } "editor" (import ./install.nix));
+  neovim-conf = import ../nix-home/neovim.nix;
 
   org-capture = with pkgs; (makeDesktopItem {
     name = "org-capture";
@@ -23,11 +21,14 @@ in {
       doom.enable = mkOption { type = bool; default = false; };
     };
 
-  config = mkMerge [ 
-    (pkg-editor-enable { package = "neovim"; conf = neovim-conf; })
+  config = 
+    mkMerge [
+      (pkg-editor-enable { package = "neovim"; conf = neovim-conf; })
 
-    (enable { package = "emacs"; conf = emacs-conf; cond = config.modules.editor.doom.enable; inherit lib; })
-    (install { package = org-capture; cond = config.modules.editor.doom.enable; inherit lib; })
-    (install { package = pkgs.sqlite; cond = config.modules.editor.doom.enable; inherit lib; })
+      (pkg-editor-enable { package = "emacs"; mod = "doom"; })
+      (pkg-editor-install { package = org-capture; mod = "doom"; })
+      (pkg-editor-install { package = pkgs.sqlite; mod = "doom"; })
+
+      { my.home.home.file = mkIf config.modules.editor.doom.enable { ".doom.d".source = ../nix-home/bin/doom.d; }; }
   ];
 }

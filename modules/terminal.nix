@@ -3,7 +3,7 @@
 with lib; with types;
 let
   pkg-terminal-enable = (import ./pkg.nix { inherit lib config; } "terminal" (import ./enable.nix));
-  termite-conf = import ../configs/termite.nix;
+  termite-conf = import ../nix-home/termite.nix;
 in {
 
   options.modules.terminal = {

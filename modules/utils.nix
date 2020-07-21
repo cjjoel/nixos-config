@@ -4,8 +4,8 @@ with lib; with types;
 let
   pkg-utils-install = (import ./pkg.nix { inherit lib config; } "utils" (import ./install.nix));
   pkg-utils-enable = (import ./pkg.nix { inherit lib config; } "utils" (import ./enable.nix));
-  git-conf = import ../configs/git.nix;
-  zathura-conf = import ../configs/zathura.nix;
+  git-conf = import ../nix-home/git.nix;
+  zathura-conf = import ../nix-home/zathura.nix;
 in {
   options.modules.utils = {
     git.enable = mkOption { type = bool; default = false; };

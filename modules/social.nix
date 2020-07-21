@@ -13,6 +13,6 @@ in {
 
   config = mkMerge [ 
     (pkg-social-install { package = pkgs.discord; })
-    (install { package = pkgs.riot-desktop; cond = config.modules.social.riot.enable; inherit lib; })
+    (pkg-social-install { package = pkgs.riot-desktop; mod = "riot"; })
   ];
 }

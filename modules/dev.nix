@@ -12,10 +12,10 @@ in {
     gcc.enable = mkOption { type = types.bool; default = false; };
   };
 
-  config = mkMerge (map pkg-dev-install [ 
-    { package = pkgs.racket; } 
-    { package = pkgs.heroku; } 
-    { package = pkgs.clang; } 
-    { package = pkgs.gcc; } 
-  ]);
+  config = mkMerge (map (x: pkg-dev-install { package = x; }) (with pkgs;[ 
+    racket
+    heroku
+    clang
+    gcc
+  ]));
 }

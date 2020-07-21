@@ -6,7 +6,11 @@ with lib; with types; {
       startx.enable = mkOption { type = bool; default = false; };
     };
 
-  config.services.xserver.displayManager = {
-    startx.enable = mkIf config.modules.display-manager.startx.enable true;
+  config = {
+
+    services.xserver.displayManager = {
+      startx.enable = mkIf config.modules.display-manager.startx.enable true;
+    };
+
   };
 }
