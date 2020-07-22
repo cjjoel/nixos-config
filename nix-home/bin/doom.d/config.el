@@ -58,13 +58,10 @@
       '(("r" "ref" plain (function org-roam-capture--get-point)
          "%?"
          :file-name "web/${slug}"
-         :head "#+TITLE: ${title}
+         :head "#+title: ${title}
 #+ROAM_KEY: ${ref}
-#+ROAM_ALIAS:
 #+ROAM_TAGS:
-#+CREATED: %u
-#+LAST_MODIFIED: %U
-- source :: ${ref}\n\n"
+#+CREATED: %u"
          :unnarrowed t)))
 
 (require 'company-org-roam)
