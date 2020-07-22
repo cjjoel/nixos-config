@@ -8,8 +8,6 @@
   ];
 
   modules = {
-    #pkgList = with pkgs; [ sqlite ]; 
-
     shell.bash.enable = true;
     terminal.termite.enable = true;
 
@@ -20,7 +18,9 @@
       racket.enable = true;
       heroku.enable = true;
       gcc.enable = true;
-      #clang.enable = true;
+      # clang.enable = true;
+      rlwrap.enable = true;
+      sbcl.enable = true;
     };
 
     editor = {
@@ -36,11 +36,12 @@
     social = {
       discord.enable = true;
       riot.enable = true;
+      zoom.enable = true;
     };
 
     misc = {
       cowsay.enable = true;
-    # fortune.enable = true;
+      # fortune.enable = true;
       neofetch.enable = true;
     };
 
@@ -49,10 +50,11 @@
       feh.enable = true;
       git.enable = true;
       mpv.enable = true;
-      #zathura.enable = true;
+      # zathura.enable = true;
       youtube-dl.enable = true;
       fd.enable = true;
-      #thefuck.enable = true;
+      # thefuck.enable = true;
+      htop.enable = true;
     };
   };
 
