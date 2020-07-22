@@ -15,18 +15,20 @@ in {
     mpv.enable = mkOption { type = bool; default = false; };
     youtube-dl.enable = mkOption { type = bool; default = false; };
     fd.enable = mkOption { type = bool; default = false; };
+    htop.enable = mkOption { type = bool; default = false; };
     thefuck.enable = mkOption { type = bool; default = false; };
   };
 
-  config = mkMerge ((map pkg-utils-install [ 
-    { package = pkgs.feh; } 
-    { package = pkgs.tree; } 
-    { package = pkgs.mpv; } 
-    { package = pkgs.youtube-dl; } 
-    { package = pkgs.fd; } 
-    { package = pkgs.thefuck; } 
-    ]) ++ [
-    (pkg-utils-enable { package = "git"; conf = git-conf; })
-    (pkg-utils-enable { package = "zathura"; conf = zathura-conf; })
+  config = mkMerge ((map (x: pkg-utils-install { package = x; }) (with pkgs; [
+    feh
+    tree
+    mpv
+    youtube-dl
+    fd
+    thefuck
+    htop
+  ])) ++ [
+  (pkg-utils-enable { package = "git"; conf = git-conf; })
+  (pkg-utils-enable { package = "zathura"; conf = zathura-conf; })
   ]);
 }
