@@ -10,6 +10,8 @@ in {
     heroku.enable = mkOption { type = types.bool; default = false; };
     clang.enable = mkOption { type = types.bool; default = false; };
     gcc.enable = mkOption { type = types.bool; default = false; };
+    sbcl.enable = mkOption { type = types.bool; default = false; };
+    rlwrap.enable = mkOption { type = types.bool; default = false; };
   };
 
   config = mkMerge (map (x: pkg-dev-install { package = x; }) (with pkgs;[ 
@@ -17,5 +19,7 @@ in {
     heroku
     clang
     gcc
+    sbcl
+    rlwrap
   ]));
 }
