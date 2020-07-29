@@ -30,4 +30,7 @@
   hardware.opengl.driSupport32Bit = true;
   nixpkgs.config.allowUnfree = true;
   #virtualisation.libvirtd.enable = true;
+  
+  time.timeZone = "Asia/Kolkata";
+  time.hardwareClockInLocalTime = true;
 }

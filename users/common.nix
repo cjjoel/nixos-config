@@ -2,8 +2,6 @@
 
 {
   i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Asia/Kolkata";
-  time.hardwareClockInLocalTime = true;
   console.keyMap = "us";
   console.font = "Lat2-Terminus18";
 
