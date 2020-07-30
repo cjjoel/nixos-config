@@ -14,12 +14,13 @@ in {
     rlwrap.enable = mkOption { type = types.bool; default = false; };
   };
 
-  config = mkMerge (map (x: pkg-dev-install { package = x; }) (with pkgs;[ 
+  config = mkMerge ((map (x: pkg-dev-install { package = x; }) (with pkgs;[ 
     racket
     heroku
-    clang
-    gcc
     sbcl
     rlwrap
-  ]));
+  ])) ++ [
+  (pkg-dev-install { package = pkgs.gcc; mod = "gcc"; })
+  (pkg-dev-install { package = pkgs.clang; mod = "clang"; })
+  ]);
 }

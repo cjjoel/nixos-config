@@ -17,10 +17,10 @@
     dev = {
 #      racket.enable = true;
 #      heroku.enable = true;
-#      gcc.enable = true;
-#      clang.enable = true;
-#      rlwrap.enable = true;
-#      sbcl.enable = true;
+#      gcc.enable = true; 
+      clang.enable = true;
+      rlwrap.enable = true;
+      sbcl.enable = true;
     };
 
     editor = {
