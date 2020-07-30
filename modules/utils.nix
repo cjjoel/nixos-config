@@ -29,6 +29,6 @@ in {
     htop
   ])) ++ [
   (pkg-utils-enable { package = "git"; conf = git-conf; })
-  (pkg-utils-enable { package = "zathura"; conf = zathura-conf; })
+#  (pkg-utils-enable { package = "zathura"; conf = zathura-conf; })
   ]);
 }

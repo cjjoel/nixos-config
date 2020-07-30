@@ -9,11 +9,15 @@ in {
     cowsay.enable = mkOption { type = bool; default = false; };
     fortune.enable = mkOption { type = bool; default = false; };
     neofetch.enable = mkOption { type = bool; default = false; };
+    hello-unfree.enable = mkOption { type = bool; default = false; };
+    hello.enable = mkOption { type = bool; default = false; };
   };
 
   config = mkMerge (map (x: pkg-misc-install { package = x; }) (with pkgs; [
     cowsay
     neofetch
     fortune
+    hello
+    hello-unfree
   ]));
 }

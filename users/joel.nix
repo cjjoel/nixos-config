@@ -8,6 +8,9 @@
   ];
 
   modules = {
+    #pkgList = [ pkgs.example ];
+    #enableList = [ "example" ];
+
     shell.bash.enable = true;
     terminal.termite.enable = true;
 
@@ -39,18 +42,25 @@
 #      zoom.enable = true;
     };
 
-#    misc = {
+    misc = {
 #      cowsay.enable = true;
 #      fortune.enable = true;
 #      neofetch.enable = true;
-#    };
+#      hello-unfree.enable = true;
+#      hello.enable = true;
+    };
+
+    reading = {
+      zathura.enable = true;
+      calibre.enable = true;
+      adobe-reader.enable = true;
+    };
 
     utils = {
       tree.enable = true;
 #      feh.enable = true;
       git.enable = true;
       mpv.enable = true;
-      zathura.enable = true;
 #      youtube-dl.enable = true;
       fd.enable = true;
 #      thefuck.enable = true;
