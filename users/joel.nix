@@ -53,7 +53,7 @@
     reading = {
       zathura.enable = true;
       calibre.enable = true;
-      adobe-reader.enable = true;
+#      adobe-reader.enable = true;
     };
 
     utils = {
@@ -65,6 +65,7 @@
       fd.enable = true;
 #      thefuck.enable = true;
       htop.enable = true;
+      obsidian.enable = true;
     };
   };
 

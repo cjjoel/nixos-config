@@ -17,6 +17,7 @@ in {
     fd.enable = mkOption { type = bool; default = false; };
     htop.enable = mkOption { type = bool; default = false; };
     thefuck.enable = mkOption { type = bool; default = false; };
+    obsidian.enable = mkOption { type = bool; default = false; };
   };
 
   config = mkMerge ((map (x: pkg-utils-install { package = x; }) (with pkgs; [
@@ -29,6 +30,6 @@ in {
     htop
   ])) ++ [
   (pkg-utils-enable { package = "git"; conf = git-conf; })
-#  (pkg-utils-enable { package = "zathura"; conf = zathura-conf; })
+  (pkg-utils-install { package = pkgs.my.obsidian; mod = "obsidian"; })
   ]);
 }

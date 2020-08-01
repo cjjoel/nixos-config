@@ -1,4 +1,5 @@
 {
+  nixpkgs.overlays = import ../overlays;
   hardware.cpu.intel.updateMicrocode = true;
 
   # This value determines the NixOS release with which your system is to be

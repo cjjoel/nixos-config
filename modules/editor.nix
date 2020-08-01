@@ -14,6 +14,7 @@ let
     icon = "emacs";
     type = "Application";
   });
+
 in {
 
   options.modules.editor = {
