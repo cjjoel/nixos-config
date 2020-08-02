@@ -33,4 +33,6 @@
   
   time.timeZone = "Asia/Kolkata";
   time.hardwareClockInLocalTime = true;
+
+  services.upower.enable = true;
 }
