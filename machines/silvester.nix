@@ -38,11 +38,8 @@
   time.timeZone = "Asia/Kolkata";
   time.hardwareClockInLocalTime = true;
 
-#  services.upower.enable = true;
-#  services.upower.criticalPowerAction = "Hibernate";
-#  services.upower.percentageLow = 20;
-#  services.upower.percentageCritical = 10;
-#  services.upower.percentageAction = 9;
+# battery-notification service is based on domenkozar's suspend.nix
+# https://gist.github.com/domenkozar/82886ee82efee623cdc0d19eb81c7fb7
 
   systemd.user.timers."battery-notification" = {
     description = "check battery level";
@@ -82,13 +79,4 @@
 	  #libinput.naturalScrolling = true; #reverse scrolling
     #autoRepeatDelay = 250;
   };
-
-#  services.udev.extraRules = ''
-#    SUBSYSTEM=="power_supply",
-#    KERNEL=="BAT1",
-#    ATTR{status}=="Discharging",
-#    ATTR{capacity}=="[0-20]",
-#    RUN+="${pkgs.coreutils}/bin/coreutils --coreutils-prog=notify-send -u critical LOW BATTERY"
-#  '';
-#    #RUN+="${pkgs.systemd}/bin/systemctl poweroff"
 }
