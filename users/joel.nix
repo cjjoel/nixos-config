@@ -4,7 +4,7 @@
   imports = [ 
     ./common.nix 
     ../modules
-    ../services/xserver.nix 
+#    ../services/xserver.nix 
   ];
 
   modules = {
@@ -20,8 +20,8 @@
     dev = {
 #      racket.enable = true;
 #      heroku.enable = true;
-#      gcc.enable = true; 
-      clang.enable = true;
+      gcc.enable = true; 
+#      clang.enable = true;
       rlwrap.enable = true;
       sbcl.enable = true;
     };
@@ -37,8 +37,9 @@
     };
     
     social = {
-#      discord.enable = true;
-#      riot.enable = true;
+      discord.enable = true;
+      riot.enable = true;
+      telegram.enable = true;
 #      zoom.enable = true;
     };
 

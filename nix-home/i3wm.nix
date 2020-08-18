@@ -1,4 +1,4 @@
-{ lib }:
+{ lib, pkgs }:
 
 let 
 mod="Mod4";
@@ -9,6 +9,11 @@ ws4 = "4:Matrix";
 ws5 = "5:Class"; in {
   enable = true;
   config = {
+    startup = [
+      { command = "systemctl --user import-environment"; }
+      { command = "systemctl start --user dunst.service"; }
+    ];
+    
     modifier = "Mod4";
     terminal = "termite";
     fonts=["Ubuntu Mono 14"];
