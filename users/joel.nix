@@ -4,7 +4,6 @@
   imports = [ 
     ./common.nix 
     ../modules
-#    ../services/xserver.nix 
   ];
 
   modules = {
