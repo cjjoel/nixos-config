@@ -17,17 +17,19 @@
     display-manager.startx.enable = true;
     
     dev = {
-#      racket.enable = true;
-#      heroku.enable = true;
+      # racket.enable = true;
+      # heroku.enable = true;
       gcc.enable = true; 
-#      clang.enable = true;
+      # clang.enable = true;
       rlwrap.enable = true;
       sbcl.enable = true;
+      jdk7.enable = true;
     };
 
     editor = {
       neovim.enable = true;
       doom.enable = true;
+      emacs.enable = true;
     };
 
     browser = {
@@ -39,31 +41,31 @@
       discord.enable = true;
       riot.enable = true;
       telegram.enable = true;
-#      zoom.enable = true;
+      zoom.enable = true;
     };
 
     misc = {
-#      cowsay.enable = true;
-#      fortune.enable = true;
-#      neofetch.enable = true;
-#      hello-unfree.enable = true;
-#      hello.enable = true;
+      # cowsay.enable = true;
+      # fortune.enable = true;
+      # neofetch.enable = true;
+      # hello-unfree.enable = true;
+      # hello.enable = true;
     };
 
     reading = {
       zathura.enable = true;
       calibre.enable = true;
-#      adobe-reader.enable = true;
+      # adobe-reader.enable = true;
     };
 
     utils = {
       tree.enable = true;
-#      feh.enable = true;
+      # feh.enable = true;
       git.enable = true;
       mpv.enable = true;
-#      youtube-dl.enable = true;
+      # youtube-dl.enable = true;
       fd.enable = true;
-#      thefuck.enable = true;
+      # thefuck.enable = true;
       htop.enable = true;
       obsidian.enable = true;
     };
