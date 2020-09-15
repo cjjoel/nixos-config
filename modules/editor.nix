@@ -20,11 +20,13 @@ in {
   options.modules.editor = {
       neovim.enable = mkOption { type = bool; default = false; };
       doom.enable = mkOption { type = bool; default = false; };
+      emacs.enable = mkOption { type = bool; default = false; };
     };
 
   config = 
     mkMerge [
       (pkg-editor-enable { package = "neovim"; conf = neovim-conf; })
+      (pkg-editor-enable { package = "emacs"; })
 
       (pkg-editor-enable { package = "emacs"; mod = "doom"; })
       (pkg-editor-install { package = org-capture; mod = "doom"; })
