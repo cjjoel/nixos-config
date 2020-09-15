@@ -1,3 +1,5 @@
+# https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/compilers/oraclejdk/jdk-linux-base.nix
+
 { swingSupport ? true
 , stdenv
 , requireFile
