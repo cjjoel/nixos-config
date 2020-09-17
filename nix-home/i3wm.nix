@@ -3,8 +3,8 @@
 let 
 mod="Mod4";
 ws1 = "1:Term";
-ws2 = "2:Firefox";
-ws3 = "3:Doom";
+ws2 = "2:Browser";
+ws3 = "3:Emacs";
 ws4 = "4:Matrix";
 ws5 = "5:Class"; in {
   enable = true;
@@ -12,12 +12,15 @@ ws5 = "5:Class"; in {
     startup = [
       { command = "systemctl --user import-environment"; }
       { command = "systemctl start --user dunst.service"; }
+      { command = "systemctl start --user network-manager-applet.service"; }
     ];
     
     modifier = "Mod4";
     terminal = "termite";
     fonts=["Ubuntu Mono 14"];
-    bars = [{ fonts = ["Ubuntu Mono 14"]; }];
+    bars = [{ 
+      fonts = ["Ubuntu Mono 14"];
+    }];
     keybindings = lib.mkOptionDefault {
       "${mod}+1" = "workspace ${ws1}";
       "${mod}+2" = "workspace ${ws2}";
