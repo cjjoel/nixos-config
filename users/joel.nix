@@ -7,8 +7,8 @@
   ];
 
   modules = {
-    #pkgList = [ pkgs.example ];
-    #enableList = [ "example" ];
+    #pkgList = [ pkgs.direnv ];
+    #enableList = [ "direnv" ];
 
     shell.bash.enable = true;
     terminal.termite.enable = true;
@@ -69,6 +69,10 @@
       htop.enable = true;
       obsidian.enable = true;
     };
+  };
+
+  my.home.home.file = {
+    ".i3status.conf".source = ../nix-home/bin/i3status.conf;
   };
 
   my.username = "joel";

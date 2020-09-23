@@ -6,7 +6,4 @@
     df = "df -H";
     today = "date +%d-%m-%Y";
   };
-  sessionVariables = {
-    TERM = "xterm-256color";
-  };
 }
