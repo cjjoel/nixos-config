@@ -45,13 +45,7 @@
     enable = true;
     videoDrivers = [ "amdgpu" "intel"];
     libinput.enable = true;
-    desktopManager = {
-	xterm.enable = false;
-	xfce.enable = true;
-	xfce.noDesktop = true;
-	xfce.enableXfwm =false;
-    };
-    displayManager.defaultSession = "xfce+bspwm";
+    desktopManager.xterm.enable = false;
     windowManager.bspwm.enable = true;
   };
 
