@@ -24,11 +24,13 @@
       }
     '';
   };
+
   # services.dbus.packages = with pkgs; [ gnome3.dconf ]; 
   nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "anselm";
   networking.networkmanager.enable = true; 
+  programs.nm-applet.enable = true;
   
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
