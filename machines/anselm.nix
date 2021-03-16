@@ -57,6 +57,11 @@
     glxinfo
     pavucontrol
     killall
+    xsecurelock
+  ];
+
+  fonts.fonts = with pkgs; [
+    source-code-pro
   ];
 
   programs.light.enable = true;
