@@ -57,7 +57,6 @@
     glxinfo
     pavucontrol
     killall
-    xsecurelock
   ];
 
   fonts.fonts = with pkgs; [
