@@ -51,6 +51,9 @@
     windowManager.bspwm.enable = true;
   };
 
+  # Disable x11_ssh_askpass popup on git push
+  programs.ssh.askPassword = "";
+
   environment.systemPackages = with pkgs; [	
     pciutils
     inxi
