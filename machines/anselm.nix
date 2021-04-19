@@ -51,6 +51,12 @@
     windowManager.bspwm.enable = true;
   };
 
+  qt5 = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita";
+  };
+
   # Disable x11_ssh_askpass popup on git push
   programs.ssh.askPassword = "";
 
