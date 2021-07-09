@@ -5,7 +5,7 @@
     ../hardware-configurations/anselm.nix
     ./common.nix ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "radeon.si_support=0" "amdgpu.si_support=1" ];
 
@@ -36,7 +36,7 @@
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
-  # hardware.enableRedistributableFirmware = true;
+  hardware.enableRedistributableFirmware = true;
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
 
@@ -47,8 +47,7 @@
     enable = true;
     videoDrivers = [ "amdgpu" "intel"];
     libinput.enable = true;
-    desktopManager.xterm.enable = false;
-    windowManager.bspwm.enable = true;
+    desktopManager.xterm.enable = true;
   };
 
   qt5 = {
@@ -117,6 +116,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.09"; # Did you read the comment?
 }
 
