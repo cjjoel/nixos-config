@@ -74,6 +74,37 @@
   programs.light.enable = true;
   services.tlp.enable = true;
 
+  services.udev.extraRules = let
+    notify = pkgs.writeShellScript "charging_status" ''
+      # Detect the name of the display in use
+      display=":$(${pkgs.coreutils}/bin/ls /tmp/.X11-unix/* | ${pkgs.gnused}/bin/sed 's#/tmp/.X11-unix/X##' | ${pkgs.coreutils}/bin/head -n 1)"
+
+      # Detect the user using such display
+      user=$(${pkgs.coreutils}/bin/who | ${pkgs.gnugrep}/bin/grep '('$display')' | ${pkgs.gawk}/bin/awk '{print $1}' | ${pkgs.coreutils}/bin/head -n 1)
+
+      # Detect the id of the user
+      uid=$(${pkgs.coreutils}/bin/id -u $user)
+
+      /run/wrappers/bin/su - $user -c "DISPLAY=$display DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$uid/bus ${pkgs.libnotify}/bin/notify-send --urgency=$2 $1"
+    echo $1 > /tmp/msg
+    '';
+
+    chargingStatus = pkgs.writeShellScript "charging_status" ''
+      msg=$(if [ $@ -ne "0" ]; then echo "Charger connected"; else echo "Charger disconnected"; fi)
+      ${pkgs.bash}/bin/sh ${notify} "$msg" "normal"
+    '';
+    in ''
+      KERNEL=="ACAD", \
+      SUBSYSTEM=="power_supply", \
+      ATTR{online}=="0", \
+      RUN+="${pkgs.bash}/bin/sh ${chargingStatus} 0"
+
+      KERNEL=="ACAD", \
+      SUBSYSTEM=="power_supply", \
+      ATTR{online}=="1", \
+      RUN+="${pkgs.bash}/bin/sh ${chargingStatus} 1"
+    '';
+
 # battery-notification service is based on domenkozar's suspend.nix
 # https://gist.github.com/domenkozar/82886ee82efee623cdc0d19eb81c7fb7
 
